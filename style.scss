@@ -1,0 +1,94 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	background: linear-gradient(to right, #bc4e9c, #f80759);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+$transition: all 0.4s ease-in-out;
+
+.container {
+	// Inactive State
+	border: none;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	display: flex;
+	box-shadow: 0px 0px 3px black;
+	transition: $transition;
+
+	& input {
+		width: 0px;
+		height: 100px;
+		border: none;
+		font-size: 50px;
+		padding-left: 0px;
+		transition: $transition;
+	}
+
+	& button {
+		position: relative;
+		width: 100px;
+		height: 100px;
+		font-size: 80px;
+		border: none;
+		background: white;
+		cursor: pointer;
+		transition: $transition;
+	}
+
+	// Active State
+	&.active {
+		width: 400px;
+
+		& input {
+			width: 300px;
+			padding-left: 20px;
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	.container {
+		// Inactive State
+		width: 100px;
+		height: 100px;
+		& input {
+			width: 0px;
+			height: 100px;
+			background-color: lightblue;
+		}
+
+		& button {
+			transition: $transition;
+			background-color: lightblue;
+		}
+
+		// Active State
+		&.active {
+			width: 200px;
+			height: 50px;
+
+			& input {
+				width: 150px;
+				height: 50px;
+				font-size: 25px;
+			}
+
+			& button {
+				width: 50px;
+				height: 50px;
+				font-size: 40px;
+			}
+		}
+	}
+}
